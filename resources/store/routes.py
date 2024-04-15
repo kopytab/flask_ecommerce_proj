@@ -9,7 +9,7 @@ from schemas import Store_Schema
 from models.store_model import Store_Model
 
 @bp.route('/store')
-class CartList(MethodView):
+class StoreList(MethodView):
 
     @bp.arguments(Store_Schema)
     def post(self, store_data):
