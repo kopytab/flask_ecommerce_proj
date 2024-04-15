@@ -4,11 +4,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class User_Model(db.Model):
 
-    __tablename__ = 'users'
+    __tablename__ = 'user'
 
     user_id = db.Column(db.Integer, primary_key = True)
     first_name = db.column(db.String(50))
     last_name = db.column(db.String(50))
+    email = db.column(db.String(50)) 
     password_hash = db.Column(db.String, nullable = False)
     
 
@@ -20,7 +21,7 @@ class User_Model(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-def from_dict(self, user_dict):
+    def from_dict(self, user_dict):
         for k , v in user_dict.items():
             if k != 'password':
                 setattr(self, k, v)

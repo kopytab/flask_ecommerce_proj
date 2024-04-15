@@ -5,8 +5,8 @@ class Cart_Model(db.Model):
     __tablename__ = 'cart'
 
     cart_id = db.Column(db.Integer, primary_key = True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),nullable = False)
-    product_id = db.Column(db.Integer, db.ForeignKey('store.id'),nullable = False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'),nullable = False)
+    product_id = db.Column(db.Integer, db.ForeignKey('store.product_id'),nullable = False)
 
     
 
